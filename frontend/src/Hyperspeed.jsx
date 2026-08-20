@@ -39,7 +39,8 @@ const DEFAULT_EFFECT_OPTIONS = {
     leftCars: [0xd856bf, 0x6750a2, 0xc247ac],
     rightCars: [0x03b3c3, 0x0e5ea5, 0x324555],
     sticks: 0x03b3c3
-  }
+  },
+  bloomThreshold: 0.2
 };
 
 const Hyperspeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
@@ -444,7 +445,7 @@ const Hyperspeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
         this.bloomPass = new EffectPass(
           this.camera,
           new BloomEffect({
-            luminanceThreshold: 0.2,
+            luminanceThreshold: this.options.bloomThreshold,
             luminanceSmoothing: 0,
             resolutionScale: 1
           })
